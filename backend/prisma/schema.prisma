@@ -1,0 +1,30 @@
+// backend/prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+  engineType = "binary" // AÑADIR ESTA LÍNEA
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  nombre      String   @db.VarChar(255)
+  descripcion String   @db.Text
+  estado      Estado   @default(PENDIENTE)
+  fechaInicio DateTime
+  fechaFin    DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("projects")
+}
+
+enum Estado {
+  PENDIENTE
+  EN_PROGRESO
+  FINALIZADO
+  CANCELADO
+}

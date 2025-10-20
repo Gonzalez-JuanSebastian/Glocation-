@@ -1,0 +1,32 @@
+{
+  "name": "proyectos-backend",
+  "version": "1.0.0",
+  "description": "API REST para gestión de proyectos con IA",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "migrate:dev": "npx prisma migrate dev --name init",
+    "migrate:deploy": "npx prisma migrate deploy",
+    "db:seed": "node prisma/seed.js",
+    "db:studio": "npx prisma studio",
+    "db:generate": "npx prisma generate",
+    "db:init": "npx prisma generate && npx prisma db push && node prisma/seed.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.3.1",
+    "@prisma/client": "^5.5.2",
+    "swagger-ui-express": "^5.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "axios": "^1.6.0",
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "prisma": "^5.5.2",
+    "nodemon": "^3.0.1"
+  }
+}

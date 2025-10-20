@@ -1,0 +1,296 @@
+/* ===== RESPONSIVE DESIGN SYSTEM ===== */
+
+/* Breakpoints */
+:root {
+  --breakpoint-mobile: 767px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1400px;
+}
+
+/* Container responsive */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Grid system responsive */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-1 { grid-template-columns: 1fr; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Flexbox responsive */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+/* Spacing responsive */
+.gap-0 { gap: 0; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+.gap-4 { gap: 2rem; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+.m-0 { margin: 0; }
+.m-1 { margin: 0.5rem; }
+.m-2 { margin: 1rem; }
+.m-3 { margin: 1.5rem; }
+.m-4 { margin: 2rem; }
+
+/* Text responsive */
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Visibility responsive */
+.mobile-only { display: none; }
+.tablet-only { display: none; }
+.desktop-only { display: block; }
+
+/* ===== MOBILE FIRST MEDIA QUERIES ===== */
+
+/* Mobile (default) */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .mobile-only { display: block; }
+  .tablet-only { display: none; }
+  .desktop-only { display: none; }
+  
+  /* Grid adjustments for mobile */
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Text sizes for mobile */
+  .text-xl { font-size: 1.125rem; }
+  .text-2xl { font-size: 1.25rem; }
+  
+  /* Spacing for mobile */
+  .p-2 { padding: 0.75rem; }
+  .p-3 { padding: 1rem; }
+  .p-4 { padding: 1.25rem; }
+  
+  .m-2 { margin: 0.75rem; }
+  .m-3 { margin: 1rem; }
+  .m-4 { margin: 1.25rem; }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .mobile-only { display: none; }
+  .tablet-only { display: block; }
+  .desktop-only { display: none; }
+  
+  /* Grid adjustments for tablet */
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .mobile-only { display: none; }
+  .tablet-only { display: none; }
+  .desktop-only { display: block; }
+  
+  /* Grid adjustments for desktop */
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Wide screens */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* ===== COMPONENT-SPECIFIC RESPONSIVE STYLES ===== */
+
+/* Table responsive */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive table {
+  min-width: 600px;
+}
+
+/* Form responsive */
+.form-responsive .form-group {
+  margin-bottom: 1rem;
+}
+
+.form-responsive .form-input,
+.form-responsive .form-select,
+.form-responsive .form-textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card grid responsive */
+.cards-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Chart container responsive */
+.chart-container-responsive {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+/* Navigation responsive */
+.nav-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ===== UTILITY CLASSES FOR RESPONSIVE DESIGN ===== */
+
+/* Hide/Show based on screen size */
+.hide-mobile { display: block; }
+.hide-tablet { display: block; }
+.hide-desktop { display: none; }
+
+.show-mobile { display: none; }
+.show-tablet { display: none; }
+.show-desktop { display: block; }
+
+@media (max-width: 767px) {
+  .hide-mobile { display: none; }
+  .show-mobile { display: block; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hide-tablet { display: none; }
+  .show-tablet { display: block; }
+}
+
+@media (min-width: 1024px) {
+  .hide-desktop { display: none; }
+  .show-desktop { display: block; }
+}
+
+/* Responsive images */
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive iframes and embeds */
+.embed-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.embed-responsive iframe,
+.embed-responsive object,
+.embed-responsive embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Touch-friendly buttons for mobile */
+.touch-button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.75rem 1rem;
+}
+
+/* Safe area insets for mobile devices */
+.safe-area-inset-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-inset-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --shadow-color: #000000;
+  }
+  
+  .card {
+    border: 2px solid var(--border-color);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .break-after {
+    page-break-after: always;
+  }
+  
+  .break-before {
+    page-break-before: always;
+  }
+  
+  .break-inside-avoid {
+    page-break-inside: avoid;
+  }
+}
